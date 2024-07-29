@@ -1,0 +1,181 @@
+body, html {  
+    margin: 0;  
+    padding: 0;  
+    width: 100%;  
+    height: 100%;  
+    overflow: auto;
+    background-color: #ffffff;  
+       
+}  
+  
+.background-image {  
+    /* 设置背景图片 */  
+    background-image: url('Photo-background.jpg');  
+    background-size: cover;  
+    background-position: center;  
+    width: 100%;  
+    height: 100%;  
+    position: relative;  
+}  
+  
+.overlay {  
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background-color: rgba(0, 0, 0, 0.5); /* 黑色蒙层 */  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    justify-content: center;  
+    text-align: center;  
+}  
+  
+.custom-font {  
+    font-family: 'YourCustomFontName', sans-serif; /* 使用Google Fonts或自定义字体 */  
+    color: white;  
+    font-size: 48px; /* 可调整大小 */  
+    margin: 0;
+    margin-bottom: 80px; 
+}  
+  
+.download-btn, .about-btn {  
+    /* 按钮的样式，与之前相同或根据您的需求进行调整 */  
+    border: 2px solid white;  
+    color: white;  
+    background-color: transparent;  
+    padding: 10px 20px;  
+    font-size: 16px;  
+    cursor: pointer;  
+    border-radius: 10px; /* 圆角 */  
+    transition: background-color 0.3s;  
+}  
+  
+.download-btn:hover, .about-btn:hover {  
+    background-color: rgba(255, 255, 255, 0.2);  
+}
+
+.button-container {  
+    display: flex; /* 使用flex布局 */  
+    justify-content: center; /* 水平居中按钮（可选） */  
+    align-items: center; /* 垂直居中按钮（如果按钮不是直接子元素，可能需要调整） */  
+    gap: 20px; /* 设置按钮之间的间距（注意：gap属性在较旧的浏览器中可能不受支持，可以使用margin代替） */  
+}
+
+.copyright-info {  
+    position: absolute; /* 绝对定位 */  
+    bottom: 10px; /* 距离页面底部10px */  
+    right: 20px; /* 距离页面右边10px */  
+    font-size: 14px; /* 字体大小 */  
+    color: #ffffff; /* 字体颜色 */  
+    text-align: right; /* 文本右对齐 */  
+}
+.feature-wrapper {  
+    display: flex;  
+    flex-wrap: wrap;  
+    align-content: stretch;  
+    align-items: stretch;  
+    justify-content: center;  
+    opacity: 1;  
+    transform: translateY(20px);  
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 20px; /* 添加一些内边距 */  
+    border-radius: 10px; /* 添加圆角 */  
+    background-color: #ffffff; /* 可选：添加背景色以更好地显示圆角 */  
+    box-shadow: 0 6px 8px rgba(0,0,0,0.3); /* 可选：添加阴影效果 */  
+    transition: transform 0.3s ease; /* 为变换添加过渡效果 */  
+}  
+  
+.feature-wrapper.is-auto {  
+    opacity: 1;  
+    transform: translateY(0);  
+
+}
+
+.feature-item {  
+    display: inline-block; /* 允许应用变换效果 */  
+    border-radius: 8px; /* 圆角 */  
+    padding: 15px 20px; /* 内边距 */  
+    text-decoration: none; /* 移除下划线 */  
+    color: black; /* 初始文本颜色 */  
+    background-color: transparent; /* 初始背景色 */  
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 过渡效果 */  
+    position: relative; /* 为闪烁效果设置定位上下文 */  
+    justify-content: center; /* 水平居中 */
+}  
+  
+/* 鼠标悬停时的样式 */  
+.feature-item:hover {
+    animation: blink 1.5s infinite;  
+    background-color: #e6e6e6; /* 灰色背景 */  
+    transform: scale(1.05); /* 放大效果 */  
+}  
+
+
+@keyframes blink {  
+    0%, 100% { opacity: 1; }  
+    50% { opacity: 0; }  
+}  
+  
+/* 应用闪烁效果的元素，这里假设我们为<h3>或<span>添加了一个类 */  
+.feature-item h3,  
+.feature-item .icon {  
+    /* 注意：通常我们不会为图标添加闪烁效果，这里仅作为示例 */  
+    display: inline-block; /* 允许应用动画 */  
+    /* 如果只需要文本闪烁，则只需为.feature-item h3添加以下样式 */  
+}  
+  
+.modal {  
+    display: none; /* 默认隐藏 */  
+    position: fixed; /* 固定定位 */  
+    z-index: 1; /* 位于顶层 */  
+    left: 0;  
+    top: 0;
+    
+    width: 100%; /* 宽度占满整个屏幕 */  
+    height: 100%; /* 高度占满整个屏幕 */  
+    overflow: auto; /* 如果需要滚动条 */  
+    background-color: rgb(0,0,0); /* 背景色 */  
+    background-color: rgba(0,0,0,0.4); /* 黑色背景且有透明度 */  
+  }  
+    
+  .modal-content {  
+    background-color: #fefefe;  
+    margin: 15% auto; /* 15% 从顶部 和 水平居中 */  
+    padding: 20px;  
+    border: 1px solid #888;  
+    width: 50%; /* 宽度 */
+    border-radius: 15px;  
+  }  
+    
+  .close {  
+    color: #aaa;  
+    float: right;  
+    font-size: 28px;  
+    font-weight: bold;  
+  }  
+    
+  .close:hover,  
+  .close:focus {  
+    color: black;  
+    text-decoration: none;  
+    cursor: pointer;  
+  }  
+    
+  .modal-button {  
+    display: block;  
+    text-align: center;  
+    margin: 10px 0;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    text-decoration: none;  
+    color: black;
+    border-radius: 99px;
+    width: 50%;
+    margin: 2.5% auto;  
+  }  
+    
+  .modal-button:hover {  
+    background-color: #f1f1f1;  
+  }

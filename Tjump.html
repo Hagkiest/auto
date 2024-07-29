@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>注意！您将要访问的链接不属于本网站，请注意您的账号和财产安全。</title>
+			<link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+			<style>
+			html,body{background:#F3F4F5;font-family: PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Verdana,Roboto,Noto,Helvetica Neue,sans-serif;padding:0;margin:0;}
+			a{text-decoration:none;}
+			.urlArea			{ padding-top:50px;width:450px;margin:auto;word-break: break-all; }
+			.urlArea .logo img	{ display: block;margin:auto;margin-bottom: 16px; max-width:350px; }
+			.urlArea .main		{ background:#fff;padding:24px;border-radius: 12px;border: 1px solid #E1E1E1; }
+			.urlArea .flex		{ display:flex;align-items:center; }
+			.urlArea .btn		{ display:flex;justify-content:flex-end;align-items: center; }
+			.urlArea .tip		{ background:#e8eefa;padding:12px;margin-bottom:16px;border-radius:4px; }
+			.urlArea .urlColor	{ color:red; }
+			.urlArea .urlBox	{ font-size: 14px;color: #222226;line-height: 24px;margin-bottom:24px; }
+			.urlArea .ico		{ width:24px;height:24px; }
+			.urlArea .goBtn		{ white-space: nowrap;font-size: 14px;background-color: #408ffa;color:#ffffff;border: 1px solid #408ffa;display:inline-block;box-sizing: border-box;padding:6px 18px;border-radius: 18px;margin-left:8px; }
+			.urlArea .icoTxt	{ font-size: 16px;font-weight: 600;color: #222226;line-height: 22px;margin-left:12px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap; }
+			@media (max-width: 600px){
+				.urlArea	{ padding-top:90px;width:94%; }
+			}
+            .urlColor {  
+            color: blue; /* 将链接颜色设置为蓝色 */  
+            text-decoration: none; /* 移除下划线（可选） */  
+        }  
+        
+			</style>
+		</head>
+		<body>
+            <marquee scrolldelay="400" scrollamount="80"><span style="font-weight: bolder;font-size: 40px;color: rgb(0, 0, 0);">欢迎来到Automation！您正在访问外部网站，请注意您的账号和财产安全。</span></marquee>
+            </body>
+            <div class="urlArea">  
+                <div class="main">  
+                    <div class="flex tip">  
+                        <div class="icoTxt">请注意您的账号和财产安全</div>  
+                    </div>  
+                    <div class="urlBox">  
+                        <span>  
+                            <div style="font-weight:bold;padding-bottom:8px;">即将跳转到外部网站，<span style="color:#82b1f8;font-weight:bold;">安全性未知，是否继续？</span></div>  
+                            您将要访问的链接不属于本网站，请注意您的账号和财产安全。<br />  
+                            前往：<a id="urlDisplay" class="urlColor">链接将在这里显示</a>  
+                        </span>  
+                    </div>  
+                    <div class="btn">  
+                        <label style="color:red;font-size:12px;"><input type="checkbox" id="isOk" value="1" />本人已知晓风险，本人自愿访问，与本网站无关。</label>  
+                        <a id="goBtn" class="goBtn" href="#" target="_self" onclick="return CheckGoUrl()">继续访问</a>  
+                    </div>  
+                </div>  
+            </div>  
+          
+            <script language="javascript" type="text/javascript">  
+                // 从URL参数中获取链接  
+                function getQueryParam(paramName) {  
+                    var searchString = window.location.search.substring(1),  
+                        i, val, params = searchString.split("&");  
+          
+                    for (i = 0; i < params.length; i++) {  
+                        val = params[i].split("=");  
+                        if (val[0] == paramName) {  
+                            return decodeURIComponent(val[1]);  
+                        }  
+                    }  
+                    return null;  
+                }  
+          
+                var goUrl = getQueryParam('url');  
+                if (goUrl) {  
+                    document.getElementById("urlDisplay").textContent = goUrl; // 显示链接  
+                    document.getElementById("goBtn").onclick = function() { return CheckGoUrl(goUrl); }; // 绑定点击事件，传递goUrl  
+                } else {  
+                    alert("未从URL参数中获取到链接！");  
+                }  
+          
+                function CheckGoUrl(url){  
+                    if (document.getElementById("isOk").checked){  
+                        window.location.href = url; // 使用捕获到的URL进行跳转  
+                        return false; // 阻止链接的默认行为（尽管这里已经是a标签的#，但最好还是明确返回false）  
+                    } else {  
+                        alert("请先打钩左侧【本人已知晓风险】项！");  
+                        return false;  
+                    }  
+                }  
+            </script>  
+        </body>
+		</html>

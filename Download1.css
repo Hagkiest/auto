@@ -1,0 +1,80 @@
+/* 样式化选项卡 */  
+.tabs {  
+    overflow: hidden;  
+    background-color: #f1f1f1;  
+    border-radius: 10px 10px 0 0; /* 顶部圆角 */  
+  }  
+    
+  .tabs button {  
+    background-color: inherit;  
+    float: left;  
+    border: none;  
+    outline: none;  
+    cursor: pointer;  
+    padding: 14px 16px;  
+    transition: background-color 0.3s;  
+    border-radius: 10px 10px 0 0; /* 选项卡按钮圆角 */  
+  }  
+    
+  .tabs button:hover {  
+    background-color: #ddd;  
+  }  
+    
+  .tabs button.active {  
+    background-color: #ccc;  
+  }  
+    
+  /* 样式化选项卡内容 */  
+  .tabcontent {  
+    display: none;  
+    padding: 20px;  
+    border: 1px solid #ccc;  
+    border-top: none;  
+    border-radius: 0 0 10px 10px; /* 底部圆角 */  
+  }  
+    
+  /* 鼠标悬停时加深选项卡内容背景色（可选） */  
+  .tabcontent:hover {  
+    background-color: #ffffff;  
+  }
+
+  .downloads-list {  
+    list-style-type: none;  
+    padding: 0;  
+    display: flex; /* 如果需要整个列表也是横向的，可以添加这个 */  
+    flex-direction: column; /* 或者保持为column，具体取决于您的需求 */  
+  }  
+    
+  .download-item {  
+    display: flex;  
+    align-items: center; /* 垂直居中图标和文本 */  
+    margin-bottom: 10px; /* 每个下载项之间的间距 */  
+  }  
+    
+  .download-icon {  
+    width: 32px;  
+    height: 32px;  
+    margin-right: 10px;  
+  }  
+    
+  .info {  
+    display: flex;  
+    align-items: center; /* 如果需要的话，也可以在这里垂直居中 */  
+    flex-wrap: wrap; /* 如果需要的话，允许内容换行 */  
+  }  
+    
+  .version-status, .details {  
+    display: flex;  
+    align-items: baseline; /* 确保版本号和状态在同一基线上 */  
+    margin-right: 20px; /* 版本状态组和详情组之间的间距 */  
+  }  
+    
+  
+    
+  .status {  
+    font-size: 0.8em; /* 状态文本较小 */  
+    margin-left: 4px; /* 状态与版本号之间的间距 */  
+    /* 注意：这里不再使用vertical-align，因为它在Flexbox中不起作用 */  
+  }  
+    
+
