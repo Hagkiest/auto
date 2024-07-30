@@ -45,12 +45,13 @@
     flex-direction: column; /* 或者保持为column，具体取决于您的需求 */  
   }  
     
-  .download-item {  
+  .download-item1,.download-item2,.download-item3 {  
     display: flex;  
     align-items: center; /* 垂直居中图标和文本 */  
     margin-bottom: 10px; /* 每个下载项之间的间距 */  
   }  
     
+  
   .download-icon {  
     width: 32px;  
     height: 32px;  
@@ -77,4 +78,39 @@
     /* 注意：这里不再使用vertical-align，因为它在Flexbox中不起作用 */  
   }  
     
+  .status-dot {  
+    display: inline-block;  
+    width: 10px; /* 小圆点的大小 */  
+    height: 10px;  
+    border-radius: 50%; /* 圆形 */  
+    margin-right: 20px; /* 与版本号之间的间距 */  
+    /* 初始时不设置背景色，因为我们将通过数据属性选择器来设置 */  
+    position: relative; /* 设置为相对定位 */  
+    left: 10px; /* 向右移动10px，你可以根据需要调整这个值 */  
+}
+    
+    
+  /* 根据数据属性设置不同的背景色 */  
+  .status-dot[data-status="RC"],  
+  .status-dot[data-status="Release"] {  
+    background-color: green;  
+  }  
+    
+  .status-dot[data-status="Beta"] {  
+    background-color: rgba(255, 255, 74, 0.623);  
+  }  
+    
+  .status-dot[data-status="Alpha"] {  
+    background-color: rgba(219, 1, 1, 0.808);  
+  }  
+    
+  .status-dot[data-status="Base"] {  
+    background-color: gray;  
+  }
 
+  /* 在媒体查询中定义details类的隐藏样式 */
+@media (max-width: 600px) {
+  .details {
+      display: none;
+  }
+}

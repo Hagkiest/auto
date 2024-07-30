@@ -20,6 +20,25 @@ function openTab(evt, tabName) {
   // 假设您想默认显示第一个选项卡（Xiaoma）  
   document.getElementsByClassName("tablink")[0].click();
 
-  
+// JavaScript 用于检测设备类型并隐藏details元素
+function hideDetailsOnMobile() {
+  const detailsElements = document.querySelectorAll('.details');
+  if (window.innerWidth <= 600) {
+      detailsElements.forEach(element => {
+          element.style.display = 'none';
+      });
+  } else {
+      detailsElements.forEach(element => {
+          element.style.display = '';
+      });
+  }
+}
+
+// 监听窗口尺寸变化事件
+window.addEventListener('resize', hideDetailsOnMobile);
+
+// 页面加载时运行
+window.addEventListener('load', hideDetailsOnMobile);
+
 
   
